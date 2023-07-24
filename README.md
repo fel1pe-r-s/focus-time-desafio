@@ -11,7 +11,12 @@ Aqui neste **[link](<https://www.figma.com/file/TngLSnUAfvHcJAQe1KygUQ/Stage-05-
 ## Deploy
 
 Para Acessa o projeto<br>
+[![Netlify](https://img.shields.io/badge/Deploy-000?style=for-the-badge&logo=netlify&logoColor=white)](https://desafio-focus-time.netlify.app/)
 
-#### em construção
 
+<video width="640" height="360" controls>
+  <source src="https://drive.google.com/file/d/1pFtfMet9HynvWefvhJwOGZgnKDnbp8hs/view?usp=drive_link" type="video/mp4">
+  
+</video>
+<img src='./src/assets/focusTime - Made with Clipchamp.jpeg' alt="Tela de demostração" width="100%" height="100%"> <br>
 - Desafio proposto

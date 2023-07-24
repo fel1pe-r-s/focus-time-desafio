@@ -38,11 +38,12 @@ export function reset() {
 export function toggleMusic(action, element, volumeValue) {
   let stringAction = String(action);
   let isVolume = volumeValue === undefined;
-  el.musicControls.querySelectorAll(".music-on").forEach((e) => {
-    if (e !== element) {
-      e.classList.remove("music-on");
-    }
-  });
+  isVolume &&
+    el.musicControls.querySelectorAll(".music-on").forEach((e) => {
+      if (e !== element) {
+        e.classList.remove("music-on");
+      }
+    });
 
   let isMute = element.classList.toggle("music-on");
   state.isMute = isMute;
