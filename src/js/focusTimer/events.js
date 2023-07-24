@@ -16,11 +16,13 @@ export function registerControls() {
 export function registerMusicControls() {
   musicControls.addEventListener("click", (event) => {
     const action = event.target.dataset.music;
-    console.log(action);
-    let el = event.target;
+    let volume = event.target;
+    let volumeValue = volume.value;
+
+    let element = event.target;
     if (action === undefined) {
       return;
     }
-    actions.toggleMusic(action, el);
+    actions.toggleMusic(action, element, volumeValue);
   });
 }
