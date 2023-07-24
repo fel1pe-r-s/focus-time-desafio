@@ -35,51 +35,82 @@ export function reset() {
   sounds.buttonPressAudio.play();
 }
 
-export function toggleMusic(action, el) {
-  let isMute = el.classList.toggle("music-on");
-  state.isMute = isMute;
-  console.log(el.target);
+export function toggleMusic(action, element, volumeValue) {
   let stringAction = String(action);
+  let isVolume = volumeValue === undefined;
+  if (isVolume) {
+    el.musicControls.querySelectorAll(".music-on").forEach((e) => {
+      e.classList.remove("music-on");
+      element.classList.add("music-on");
+    });
+  }
+  let isMute = element.classList.toggle("music-on");
+  state.isMute = isMute;
+
   switch (stringAction) {
     case "rain":
-      if (isMute) {
-        sounds.forest.pause();
-        sounds.fireplace.pause();
-        sounds.cafeteria.pause();
-        sounds[action].play();
+      if (isVolume) {
+        sounds[action].volume = 0.5;
+        if (isMute) {
+          sounds.forest.pause();
+          sounds.fireplace.pause();
+          sounds.cafeteria.pause();
+          sounds[action].play();
+        } else {
+          sounds[action].pause();
+        }
       } else {
-        sounds[action].pause();
+        sounds[action].volume = volumeValue / 100;
       }
+
       break;
     case "fireplace":
-      if (isMute) {
-        sounds.rain.pause();
-        sounds.forest.pause();
-        sounds.cafeteria.pause();
-        sounds[action].play();
+      if (isVolume) {
+        sounds[action].volume = 0.5;
+        if (isMute) {
+          sounds.rain.pause();
+          sounds.forest.pause();
+          sounds.cafeteria.pause();
+          sounds[action].play();
+        } else {
+          sounds[action].pause();
+        }
       } else {
-        sounds[action].pause();
+        sounds[action].volume = volumeValue / 100;
       }
+
       break;
     case "cafeteria":
-      if (isMute) {
-        sounds.rain.pause();
-        sounds.forest.pause();
-        sounds.fireplace.pause();
-        sounds[action].play();
+      if (isVolume) {
+        sounds[action].volume = 0.5;
+        if (isMute) {
+          sounds.rain.pause();
+          sounds.forest.pause();
+          sounds.fireplace.pause();
+          sounds[action].play();
+        } else {
+          sounds[action].pause();
+        }
       } else {
-        sounds[action].pause();
+        sounds[action].volume = volumeValue / 100;
       }
+
       break;
     case "forest":
-      if (isMute) {
-        sounds.rain.pause();
-        sounds.cafeteria.pause();
-        sounds.fireplace.pause();
-        sounds[action].play();
+      if (isVolume) {
+        sounds[action].volume = 0.5;
+        if (isMute) {
+          sounds.rain.pause();
+          sounds.cafeteria.pause();
+          sounds.fireplace.pause();
+          sounds[action].play();
+        } else {
+          sounds[action].pause();
+        }
       } else {
-        sounds[action].pause();
+        sounds[action].volume = volumeValue / 100;
       }
+
       break;
     default:
       console.log(`Sorry, music not found.`);

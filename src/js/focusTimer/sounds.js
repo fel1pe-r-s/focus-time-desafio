@@ -8,3 +8,8 @@ export const fireplace = new Audio("./src/assets/audios/lareira.wav");
 export const rain = new Audio("./src/assets/audios/chuva.wav");
 export const cafeteria = new Audio("./src/assets/audios/cafeteria.wav");
 export const forest = new Audio("./src/assets/audios/floresta.wav");
+
+fireplace.loop = true;
+rain.loop = true;
+cafeteria.loop = true;
+forest.loop = true;
